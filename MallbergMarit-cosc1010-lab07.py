@@ -1,8 +1,8 @@
-# Your Name Here
+# Marit Mallberg
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section: 
+# 10/29/2024
+# Lab 7
+# Lab Section: 10
 # Sources, people worked with, help given to: 
 # your
 # comments
@@ -17,7 +17,22 @@
     # If a user did not enter a number output a statement saying so
 # You will continue to prompt the user until a proper integer value is entered
 
-factorial = 1
+factorial=1
+
+b=input("what is the upper bound of your factorial?")
+userbound=b.isdigit()
+
+
+if userbound != True:
+    print("the character entered is not acceptible. please enter an integer.")
+    bo=int(b)
+else:
+    bo=int(b)
+    multip=bo
+    while multip>1:
+        factorial=factorial*multip
+        multip = multip-1
+
 
 print(f"The result of the factorial based on the given bound is {factorial}")
 
@@ -39,6 +54,22 @@ print("*"*75)
 
 num_sum = 0 
 
+number=input("give me an integer")
+
+while True:
+    if number.lower() == "exit":
+        break
+    elif number.isdigit():
+        num_sum+=int(number)
+        print(num_sum)
+    elif "-" in number:
+        number = number.replace("-"," ")
+        num_sum=num_sum-int(number)
+        print(num_sum)
+    else:
+        print("bad choice. Input an integer")
+    number=input("give me an integer")
+
 print(f"Your final sum is {num_sum}")
 
 print("*"*75)
@@ -59,4 +90,19 @@ print("*"*75)
 # Print the result of the equation
 # Again, loop through prompting the user for input until `exit` in any casing is input 
 
-        
+equ=input("give me an equation")
+
+for e in equ:
+    if "+" in e:
+        sum1=0
+        equ_num=equ.split("+")
+        for num in equ_num:
+            number=int(num)
+            equ_sum=sum1+num
+            print(equ_sum)
+    elif "-" in e:
+        dif1=0
+        equ_num=equ.split("-")
+        for num in equ_num:
+            number=int(num)
+            equ_dif=dif1
