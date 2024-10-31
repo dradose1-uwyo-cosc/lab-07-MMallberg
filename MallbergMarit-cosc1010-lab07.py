@@ -1,12 +1,13 @@
 # Marit Mallberg
 # UWYO COSC 1010
-# 10/29/2024
+# 10/31/2024
 # Lab 7
 # Lab Section: 10
-# Sources, people worked with, help given to: 
-# your
-# comments
-# here
+# Sources, people worked with, help given to: Lab ta's, especially Paige, as well as one 
+#Chat-GPT-3 question on the third activity to help me break out of an infinite loop, i had
+#the break conditions to deeply nested to affect the while loop.
+
+
 
 
 # Prompt the user for an upper bound 
@@ -17,26 +18,26 @@
     # If a user did not enter a number output a statement saying so
 # You will continue to prompt the user until a proper integer value is entered
 
-#factorial=1
+factorial=1
 
-#b=input("what is the upper bound of your factorial?")
-#userbound=b.isdigit()
-
-
-#if userbound != True:
-    #print("the character entered is not acceptible. please enter an integer.")
-    #bo=int(b)
-#else:
-    #bo=int(b)
-    #multip=bo
-    #while multip>1:
-        #factorial=factorial*multip
-        #multip = multip-1
+b=input("what is the upper bound of your factorial?")
+userbound=b.isdigit()
 
 
-#print(f"The result of the factorial based on the given bound is {factorial}")
+if userbound != True:
+    print("the character entered is not acceptible. please enter an integer.")
+    bo=int(b)
+else:
+    bo=int(b)
+    multip=bo
+    while multip>1:
+        factorial=factorial*multip
+        multip = multip-1
 
-#print("*"*75)
+
+print(f"The result of the factorial based on the given bound is {factorial}")
+
+print("*"*75)
 # Create a while loop that prompts a user for input of an integer values
 # Sum all inputs. When the user enters 'exit' (regardless of casing) end the loop
 # Upon ending the loop print the sum
@@ -54,25 +55,25 @@
 
 num_sum = 0 
 
-#number=input("give me an integer")
+number=input("give me an integer")
 
-#while True:
-    #if number.lower() == "exit":
-        #break
-    #elif number.isdigit():
-        #num_sum+=int(number)
-        #print(num_sum)
-    #elif "-" in number:
-        #number = number.replace("-"," ")
-        #num_sum=num_sum-int(number)
-        #print(num_sum)
-    #else:
-        #print("bad choice. Input an integer")
-    #number=input("give me an integer")
+while True:
+    if number.lower() == "exit":
+        break
+    elif number.isdigit():
+        num_sum+=int(number)
+        print(num_sum)
+    elif "-" in number:
+        number = number.replace("-"," ")
+        num_sum=num_sum-int(number)
+        print(num_sum)
+    else:
+        print("bad choice. Input an integer")
+    number=input("give me an integer")
 
-#print(f"Your final sum is {num_sum}")
+print(f"Your final sum is {num_sum}")
 
-#print("*"*75)
+print("*"*75)
 # Now you will be creating a two operand calculator
 # It will support the following operators: +,-,/,*,% 
 # So accepted input is of the form `operand operator operand` 
@@ -90,49 +91,52 @@ num_sum = 0
 # Print the result of the equation
 # Again, loop through prompting the user for input until `exit` in any casing is input 
 
-equ=input("give me an equation")
 
 while True:
+    equ=input("give me an equation, type exit to quit")
+
+    if equ.lower()=="exit":
+        break
     for e in equ:
         if "+" in e:
-            sum1=0
+            sumlist=[]
             equ_num=equ.split("+")
             for num in equ_num:
                 number=int(num)
-                equ_sum=sum1+num
-                print(equ_sum)
+                sumlist.append(number)
+            add=sumlist[0]+sumlist[1]
+            print(add)
         elif "-" in e:
             dif1=[]
             equ_num=equ.split("-")
             for num in equ_num:
                 number=int(num)
                 dif1.append(number)
-                diff = diff[0]-diff[1]
-                print(diff)
+            diff = dif1[0]-dif1[1]
+            print(diff)
         elif "*" in e:
-            quolist=[]
+            multiplist=[]
             equ_num=equ.split("*")
             for num in equ_num:
                 number = int(num)
-                quolist.append(number)
-                quotient=quolist[0]*quolist[1]
-                print(quotient)
+                multiplist.append(number)
+            multiply=multiplist[0]*multiplist[1]
+            print(multiply)
         elif "/" in e:
             divlist=[]
             equ_num=equ.split("/")
             for num in equ_num:
                 number=int(num)
                 divlist.append(number)
-                division=divlist[0]/divlist[1]
-                print(divlist)
+            division=divlist[0]/divlist[1]
+            print(division)
         elif "%" in e:
             modlist=[]
             equ_num=equ.split("%")
             for num in equ_num:
                 number=int(num)
                 modlist.append(number)
-                modulo=modlist[0]%modlist[1]
-                print(modulo)
-        elif "e" in e:
-            break
+            modulo=modlist[0]%modlist[1]
+            print(modulo)
+
 
